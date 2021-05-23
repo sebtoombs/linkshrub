@@ -6,6 +6,7 @@ import {
   VStack,
   Input,
   FormErrorMessage,
+  FormHelperText,
 } from "@chakra-ui/react";
 import AppLayout from "../../components/AppLayout";
 import Container from "../../components/Container";
@@ -168,10 +169,24 @@ function LinkPageForm({ linkPage }) {
         <FormControl id="heading" isInvalid={!!formState?.errors?.heading}>
           <FormLabel>Heading</FormLabel>
           <Input type="text" {...register("heading")} />
+          <FormHelperText>The primary heading. Your name is a good idea.</FormHelperText>
           <FormErrorMessage>
             <ErrorMessage errors={formState.errors} name="heading" />
           </FormErrorMessage>
         </FormControl>
+        <FormControl
+          id="subheading"
+          isInvalid={!!formState?.errors?.subheading}
+        >
+          <FormLabel>Subheading</FormLabel>
+          <Input type="text" {...register("subheading")} />
+          <FormHelperText>Introduce yourself!</FormHelperText>
+          <FormErrorMessage>
+            <ErrorMessage errors={formState.errors} name="subheading" />
+          </FormErrorMessage>
+        </FormControl>
+
+        
       </VStack>
     </form>
   );
