@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Global, css } from "@emotion/react";
 import Logo from "../../components/Logo";
 import { LinkPage } from "@prisma/client";
-import { WithChildren, WithRestProps } from "../../interfaces";
+import { WithChildren, WithRestProps } from "../../types";
 
 export type LinkPageProps = {
   // prisma gives us the linkpage type, but unfortunately we cant get any more detail
