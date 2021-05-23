@@ -1,0 +1,6 @@
+.next
+.keystone
+node_modules
+.env*
+*.db
+public/images

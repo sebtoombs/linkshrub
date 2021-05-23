@@ -1,0 +1,91 @@
+datasource sqlite {
+  url      = env("DATABASE_URL")
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "node_modules/.prisma/client"
+}
+
+model AdminUser {
+  id                      Int       @id @default(autoincrement())
+  name                    String?
+  email                   String?   @unique
+  password                String?
+  passwordResetToken      String?
+  passwordResetIssuedAt   DateTime?
+  passwordResetRedeemedAt DateTime?
+  posts                   Post[]    @relation("Postauthor")
+}
+
+model User {
+  id                      Int        @id @default(autoincrement())
+  name                    String?
+  email                   String?    @unique
+  password                String?
+  passwordResetToken      String?
+  passwordResetIssuedAt   DateTime?
+  passwordResetRedeemedAt DateTime?
+  linkPages               LinkPage[] @relation("LinkPageowner")
+}
+
+model Post {
+  id          Int        @id @default(autoincrement())
+  title       String?
+  slug        String?
+  status      String?
+  content     String?
+  publishDate DateTime?
+  author      AdminUser? @relation("Postauthor", fields: [authorId], references: [id])
+  authorId    Int?       @map("author")
+  tags        Tag[]      @relation("Post_tags_Tag_posts", references: [id])
+
+  @@index([authorId])
+}
+
+model Tag {
+  id    Int     @id @default(autoincrement())
+  name  String?
+  posts Post[]  @relation("Post_tags_Tag_posts", references: [id])
+}
+
+model LinkPage {
+  id                    Int            @id @default(autoincrement())
+  title                 String?
+  heading               String?
+  subheading            String?
+  slug                  String?        @unique
+  background            String?
+  avatarImage_filesize  Int?
+  avatarImage_extension String?
+  avatarImage_width     Int?
+  avatarImage_height    Int?
+  avatarImage_mode      String?
+  avatarImage_id        String?
+  status                String?
+  links                 LinkPageLink[] @relation("LinkPageLinklinkPage")
+  owner                 User?          @relation("LinkPageowner", fields: [ownerId], references: [id])
+  ownerId               Int?           @map("owner")
+
+  @@index([ownerId])
+}
+
+model LinkPageLink {
+  id              Int       @id @default(autoincrement())
+  content         String?
+  url             String?
+  icon            String?
+  iconColor       String?
+  image_filesize  Int?
+  image_extension String?
+  image_width     Int?
+  image_height    Int?
+  image_mode      String?
+  image_id        String?
+  imageBackground String?
+  linkPage        LinkPage? @relation("LinkPageLinklinkPage", fields: [linkPageId], references: [id])
+  linkPageId      Int?      @map("linkPage")
+
+  @@index([linkPageId])
+}

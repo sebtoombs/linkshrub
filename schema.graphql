@@ -1,0 +1,1412 @@
+input PostRelateToManyInput {
+  create: [PostCreateInput]
+  connect: [PostWhereUniqueInput]
+  disconnect: [PostWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
+"""
+ A keystone list
+"""
+type AdminUser {
+  id: ID!
+  name: String
+  email: String
+  password_is_set: Boolean
+  posts(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [Post!]!
+  _postsMeta(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+  passwordResetToken_is_set: Boolean
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input AdminUserWhereInput {
+  AND: [AdminUserWhereInput]
+  OR: [AdminUserWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  name: String
+  name_not: String
+  name_contains: String
+  name_not_contains: String
+  name_in: [String]
+  name_not_in: [String]
+  email: String
+  email_not: String
+  email_contains: String
+  email_not_contains: String
+  email_in: [String]
+  email_not_in: [String]
+  password_is_set: Boolean
+
+  """
+   condition must be true for all nodes
+  """
+  posts_every: PostWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  posts_some: PostWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  posts_none: PostWhereInput
+  passwordResetToken_is_set: Boolean
+  passwordResetIssuedAt: String
+  passwordResetIssuedAt_not: String
+  passwordResetIssuedAt_lt: String
+  passwordResetIssuedAt_lte: String
+  passwordResetIssuedAt_gt: String
+  passwordResetIssuedAt_gte: String
+  passwordResetIssuedAt_in: [String]
+  passwordResetIssuedAt_not_in: [String]
+  passwordResetRedeemedAt: String
+  passwordResetRedeemedAt_not: String
+  passwordResetRedeemedAt_lt: String
+  passwordResetRedeemedAt_lte: String
+  passwordResetRedeemedAt_gt: String
+  passwordResetRedeemedAt_gte: String
+  passwordResetRedeemedAt_in: [String]
+  passwordResetRedeemedAt_not_in: [String]
+}
+
+input AdminUserWhereUniqueInput {
+  id: ID!
+}
+
+enum SortAdminUsersBy {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  passwordResetIssuedAt_ASC
+  passwordResetIssuedAt_DESC
+  passwordResetRedeemedAt_ASC
+  passwordResetRedeemedAt_DESC
+}
+
+input AdminUserUpdateInput {
+  name: String
+  email: String
+  password: String
+  posts: PostRelateToManyInput
+  passwordResetToken: String
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input AdminUsersUpdateInput {
+  id: ID!
+  data: AdminUserUpdateInput
+}
+
+input AdminUserCreateInput {
+  name: String
+  email: String
+  password: String
+  posts: PostRelateToManyInput
+  passwordResetToken: String
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input AdminUsersCreateInput {
+  data: AdminUserCreateInput
+}
+
+input LinkPageRelateToManyInput {
+  create: [LinkPageCreateInput]
+  connect: [LinkPageWhereUniqueInput]
+  disconnect: [LinkPageWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
+"""
+ A keystone list
+"""
+type User {
+  id: ID!
+  name: String
+  email: String
+  password_is_set: Boolean
+  linkPages(
+    where: LinkPageWhereInput
+    search: String
+    sortBy: [SortLinkPagesBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [LinkPage!]!
+  _linkPagesMeta(
+    where: LinkPageWhereInput
+    search: String
+    sortBy: [SortLinkPagesBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+  passwordResetToken_is_set: Boolean
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput]
+  OR: [UserWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  name: String
+  name_not: String
+  name_contains: String
+  name_not_contains: String
+  name_in: [String]
+  name_not_in: [String]
+  email: String
+  email_not: String
+  email_contains: String
+  email_not_contains: String
+  email_in: [String]
+  email_not_in: [String]
+  password_is_set: Boolean
+
+  """
+   condition must be true for all nodes
+  """
+  linkPages_every: LinkPageWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  linkPages_some: LinkPageWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  linkPages_none: LinkPageWhereInput
+  passwordResetToken_is_set: Boolean
+  passwordResetIssuedAt: String
+  passwordResetIssuedAt_not: String
+  passwordResetIssuedAt_lt: String
+  passwordResetIssuedAt_lte: String
+  passwordResetIssuedAt_gt: String
+  passwordResetIssuedAt_gte: String
+  passwordResetIssuedAt_in: [String]
+  passwordResetIssuedAt_not_in: [String]
+  passwordResetRedeemedAt: String
+  passwordResetRedeemedAt_not: String
+  passwordResetRedeemedAt_lt: String
+  passwordResetRedeemedAt_lte: String
+  passwordResetRedeemedAt_gt: String
+  passwordResetRedeemedAt_gte: String
+  passwordResetRedeemedAt_in: [String]
+  passwordResetRedeemedAt_not_in: [String]
+}
+
+input UserWhereUniqueInput {
+  id: ID!
+}
+
+enum SortUsersBy {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  passwordResetIssuedAt_ASC
+  passwordResetIssuedAt_DESC
+  passwordResetRedeemedAt_ASC
+  passwordResetRedeemedAt_DESC
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  password: String
+  linkPages: LinkPageRelateToManyInput
+  passwordResetToken: String
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input UsersUpdateInput {
+  id: ID!
+  data: UserUpdateInput
+}
+
+input UserCreateInput {
+  name: String
+  email: String
+  password: String
+  linkPages: LinkPageRelateToManyInput
+  passwordResetToken: String
+  passwordResetIssuedAt: String
+  passwordResetRedeemedAt: String
+}
+
+input UsersCreateInput {
+  data: UserCreateInput
+}
+
+type Post_content_DocumentField {
+  document(hydrateRelationships: Boolean! = false): JSON!
+}
+
+input AdminUserRelateToOneInput {
+  create: AdminUserCreateInput
+  connect: AdminUserWhereUniqueInput
+  disconnect: AdminUserWhereUniqueInput
+  disconnectAll: Boolean
+}
+
+input TagRelateToManyInput {
+  create: [TagCreateInput]
+  connect: [TagWhereUniqueInput]
+  disconnect: [TagWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
+"""
+ A keystone list
+"""
+type Post {
+  id: ID!
+  title: String
+  slug: String
+  status: String
+  content: Post_content_DocumentField
+  publishDate: String
+  author: AdminUser
+  tags(
+    where: TagWhereInput
+    search: String
+    sortBy: [SortTagsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [Tag!]!
+  _tagsMeta(
+    where: TagWhereInput
+    search: String
+    sortBy: [SortTagsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+}
+
+input PostWhereInput {
+  AND: [PostWhereInput]
+  OR: [PostWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  title: String
+  title_not: String
+  title_contains: String
+  title_not_contains: String
+  title_in: [String]
+  title_not_in: [String]
+  slug: String
+  slug_not: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_in: [String]
+  slug_not_in: [String]
+  status: String
+  status_not: String
+  status_in: [String]
+  status_not_in: [String]
+  publishDate: String
+  publishDate_not: String
+  publishDate_lt: String
+  publishDate_lte: String
+  publishDate_gt: String
+  publishDate_gte: String
+  publishDate_in: [String]
+  publishDate_not_in: [String]
+  author: AdminUserWhereInput
+  author_is_null: Boolean
+
+  """
+   condition must be true for all nodes
+  """
+  tags_every: TagWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  tags_some: TagWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  tags_none: TagWhereInput
+}
+
+input PostWhereUniqueInput {
+  id: ID!
+}
+
+enum SortPostsBy {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  slug_ASC
+  slug_DESC
+  status_ASC
+  status_DESC
+  publishDate_ASC
+  publishDate_DESC
+}
+
+input PostUpdateInput {
+  title: String
+  slug: String
+  status: String
+  content: JSON
+  publishDate: String
+  author: AdminUserRelateToOneInput
+  tags: TagRelateToManyInput
+}
+
+input PostsUpdateInput {
+  id: ID!
+  data: PostUpdateInput
+}
+
+input PostCreateInput {
+  title: String
+  slug: String
+  status: String
+  content: JSON
+  publishDate: String
+  author: AdminUserRelateToOneInput
+  tags: TagRelateToManyInput
+}
+
+input PostsCreateInput {
+  data: PostCreateInput
+}
+
+"""
+ A keystone list
+"""
+type Tag {
+  id: ID!
+  name: String
+  posts(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [Post!]!
+  _postsMeta(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+}
+
+input TagWhereInput {
+  AND: [TagWhereInput]
+  OR: [TagWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  name: String
+  name_not: String
+  name_contains: String
+  name_not_contains: String
+  name_in: [String]
+  name_not_in: [String]
+
+  """
+   condition must be true for all nodes
+  """
+  posts_every: PostWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  posts_some: PostWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  posts_none: PostWhereInput
+}
+
+input TagWhereUniqueInput {
+  id: ID!
+}
+
+enum SortTagsBy {
+  id_ASC
+  id_DESC
+  name_ASC
+  name_DESC
+}
+
+input TagUpdateInput {
+  name: String
+  posts: PostRelateToManyInput
+}
+
+input TagsUpdateInput {
+  id: ID!
+  data: TagUpdateInput
+}
+
+input TagCreateInput {
+  name: String
+  posts: PostRelateToManyInput
+}
+
+input TagsCreateInput {
+  data: TagCreateInput
+}
+
+input ImageFieldInput {
+  upload: Upload
+  ref: String
+}
+
+enum ImageExtension {
+  jpg
+  png
+  webp
+  gif
+}
+
+interface ImageFieldOutput {
+  id: ID!
+  filesize: Int!
+  width: Int!
+  height: Int!
+  extension: ImageExtension!
+  ref: String!
+  src: String!
+}
+
+type LocalImageFieldOutput implements ImageFieldOutput {
+  id: ID!
+  filesize: Int!
+  width: Int!
+  height: Int!
+  extension: ImageExtension!
+  ref: String!
+  src: String!
+}
+
+input LinkPageLinkRelateToManyInput {
+  create: [LinkPageLinkCreateInput]
+  connect: [LinkPageLinkWhereUniqueInput]
+  disconnect: [LinkPageLinkWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
+input UserRelateToOneInput {
+  create: UserCreateInput
+  connect: UserWhereUniqueInput
+  disconnect: UserWhereUniqueInput
+  disconnectAll: Boolean
+}
+
+"""
+ A keystone list
+"""
+type LinkPage {
+  id: ID!
+  title: String
+  heading: String
+  subheading: String
+  slug: String
+  background: String
+  avatarImage: ImageFieldOutput
+  status: String
+  links(
+    where: LinkPageLinkWhereInput
+    search: String
+    sortBy: [SortLinkPageLinksBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [LinkPageLink!]!
+  _linksMeta(
+    where: LinkPageLinkWhereInput
+    search: String
+    sortBy: [SortLinkPageLinksBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+  owner: User
+}
+
+input LinkPageWhereInput {
+  AND: [LinkPageWhereInput]
+  OR: [LinkPageWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  title: String
+  title_not: String
+  title_contains: String
+  title_not_contains: String
+  title_in: [String]
+  title_not_in: [String]
+  heading: String
+  heading_not: String
+  heading_contains: String
+  heading_not_contains: String
+  heading_in: [String]
+  heading_not_in: [String]
+  subheading: String
+  subheading_not: String
+  subheading_contains: String
+  subheading_not_contains: String
+  subheading_in: [String]
+  subheading_not_in: [String]
+  slug: String
+  slug_not: String
+  slug_contains: String
+  slug_not_contains: String
+  slug_in: [String]
+  slug_not_in: [String]
+  background: String
+  background_not: String
+  background_contains: String
+  background_not_contains: String
+  background_in: [String]
+  background_not_in: [String]
+  status: String
+  status_not: String
+  status_in: [String]
+  status_not_in: [String]
+
+  """
+   condition must be true for all nodes
+  """
+  links_every: LinkPageLinkWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  links_some: LinkPageLinkWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  links_none: LinkPageLinkWhereInput
+  owner: UserWhereInput
+  owner_is_null: Boolean
+}
+
+input LinkPageWhereUniqueInput {
+  id: ID!
+}
+
+enum SortLinkPagesBy {
+  id_ASC
+  id_DESC
+  title_ASC
+  title_DESC
+  heading_ASC
+  heading_DESC
+  subheading_ASC
+  subheading_DESC
+  slug_ASC
+  slug_DESC
+  background_ASC
+  background_DESC
+  status_ASC
+  status_DESC
+}
+
+input LinkPageUpdateInput {
+  title: String
+  heading: String
+  subheading: String
+  slug: String
+  background: String
+  avatarImage: ImageFieldInput
+  status: String
+  links: LinkPageLinkRelateToManyInput
+  owner: UserRelateToOneInput
+}
+
+input LinkPagesUpdateInput {
+  id: ID!
+  data: LinkPageUpdateInput
+}
+
+input LinkPageCreateInput {
+  title: String
+  heading: String
+  subheading: String
+  slug: String
+  background: String
+  avatarImage: ImageFieldInput
+  status: String
+  links: LinkPageLinkRelateToManyInput
+  owner: UserRelateToOneInput
+}
+
+input LinkPagesCreateInput {
+  data: LinkPageCreateInput
+}
+
+input LinkPageRelateToOneInput {
+  create: LinkPageCreateInput
+  connect: LinkPageWhereUniqueInput
+  disconnect: LinkPageWhereUniqueInput
+  disconnectAll: Boolean
+}
+
+"""
+ A keystone list
+"""
+type LinkPageLink {
+  id: ID!
+  content: String
+  url: String
+  icon: String
+  iconColor: String
+  image: ImageFieldOutput
+  imageBackground: String
+  linkPage: LinkPage
+}
+
+input LinkPageLinkWhereInput {
+  AND: [LinkPageLinkWhereInput]
+  OR: [LinkPageLinkWhereInput]
+  id: ID
+  id_not: ID
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_in: [ID]
+  id_not_in: [ID]
+  content: String
+  content_not: String
+  content_contains: String
+  content_not_contains: String
+  content_in: [String]
+  content_not_in: [String]
+  url: String
+  url_not: String
+  url_contains: String
+  url_not_contains: String
+  url_in: [String]
+  url_not_in: [String]
+  icon: String
+  icon_not: String
+  icon_contains: String
+  icon_not_contains: String
+  icon_in: [String]
+  icon_not_in: [String]
+  iconColor: String
+  iconColor_not: String
+  iconColor_contains: String
+  iconColor_not_contains: String
+  iconColor_in: [String]
+  iconColor_not_in: [String]
+  imageBackground: String
+  imageBackground_not: String
+  imageBackground_contains: String
+  imageBackground_not_contains: String
+  imageBackground_in: [String]
+  imageBackground_not_in: [String]
+  linkPage: LinkPageWhereInput
+  linkPage_is_null: Boolean
+}
+
+input LinkPageLinkWhereUniqueInput {
+  id: ID!
+}
+
+enum SortLinkPageLinksBy {
+  id_ASC
+  id_DESC
+  content_ASC
+  content_DESC
+  url_ASC
+  url_DESC
+  icon_ASC
+  icon_DESC
+  iconColor_ASC
+  iconColor_DESC
+  imageBackground_ASC
+  imageBackground_DESC
+}
+
+input LinkPageLinkUpdateInput {
+  content: String
+  url: String
+  icon: String
+  iconColor: String
+  image: ImageFieldInput
+  imageBackground: String
+  linkPage: LinkPageRelateToOneInput
+}
+
+input LinkPageLinksUpdateInput {
+  id: ID!
+  data: LinkPageLinkUpdateInput
+}
+
+input LinkPageLinkCreateInput {
+  content: String
+  url: String
+  icon: String
+  iconColor: String
+  image: ImageFieldInput
+  imageBackground: String
+  linkPage: LinkPageRelateToOneInput
+}
+
+input LinkPageLinksCreateInput {
+  data: LinkPageLinkCreateInput
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+  @specifiedBy(
+    url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf"
+  )
+
+type _QueryMeta {
+  count: Int
+}
+
+type Mutation {
+  """
+   Create a single AdminUser item.
+  """
+  createAdminUser(data: AdminUserCreateInput): AdminUser
+
+  """
+   Create multiple AdminUser items.
+  """
+  createAdminUsers(data: [AdminUsersCreateInput]): [AdminUser]
+
+  """
+   Update a single AdminUser item by ID.
+  """
+  updateAdminUser(id: ID!, data: AdminUserUpdateInput): AdminUser
+
+  """
+   Update multiple AdminUser items by ID.
+  """
+  updateAdminUsers(data: [AdminUsersUpdateInput]): [AdminUser]
+
+  """
+   Delete a single AdminUser item by ID.
+  """
+  deleteAdminUser(id: ID!): AdminUser
+
+  """
+   Delete multiple AdminUser items by ID.
+  """
+  deleteAdminUsers(ids: [ID!]): [AdminUser]
+
+  """
+   Create a single User item.
+  """
+  createUser(data: UserCreateInput): User
+
+  """
+   Create multiple User items.
+  """
+  createUsers(data: [UsersCreateInput]): [User]
+
+  """
+   Update a single User item by ID.
+  """
+  updateUser(id: ID!, data: UserUpdateInput): User
+
+  """
+   Update multiple User items by ID.
+  """
+  updateUsers(data: [UsersUpdateInput]): [User]
+
+  """
+   Delete a single User item by ID.
+  """
+  deleteUser(id: ID!): User
+
+  """
+   Delete multiple User items by ID.
+  """
+  deleteUsers(ids: [ID!]): [User]
+
+  """
+   Create a single Post item.
+  """
+  createPost(data: PostCreateInput): Post
+
+  """
+   Create multiple Post items.
+  """
+  createPosts(data: [PostsCreateInput]): [Post]
+
+  """
+   Update a single Post item by ID.
+  """
+  updatePost(id: ID!, data: PostUpdateInput): Post
+
+  """
+   Update multiple Post items by ID.
+  """
+  updatePosts(data: [PostsUpdateInput]): [Post]
+
+  """
+   Delete a single Post item by ID.
+  """
+  deletePost(id: ID!): Post
+
+  """
+   Delete multiple Post items by ID.
+  """
+  deletePosts(ids: [ID!]): [Post]
+
+  """
+   Create a single Tag item.
+  """
+  createTag(data: TagCreateInput): Tag
+
+  """
+   Create multiple Tag items.
+  """
+  createTags(data: [TagsCreateInput]): [Tag]
+
+  """
+   Update a single Tag item by ID.
+  """
+  updateTag(id: ID!, data: TagUpdateInput): Tag
+
+  """
+   Update multiple Tag items by ID.
+  """
+  updateTags(data: [TagsUpdateInput]): [Tag]
+
+  """
+   Delete a single Tag item by ID.
+  """
+  deleteTag(id: ID!): Tag
+
+  """
+   Delete multiple Tag items by ID.
+  """
+  deleteTags(ids: [ID!]): [Tag]
+
+  """
+   Create a single LinkPage item.
+  """
+  createLinkPage(data: LinkPageCreateInput): LinkPage
+
+  """
+   Create multiple LinkPage items.
+  """
+  createLinkPages(data: [LinkPagesCreateInput]): [LinkPage]
+
+  """
+   Update a single LinkPage item by ID.
+  """
+  updateLinkPage(id: ID!, data: LinkPageUpdateInput): LinkPage
+
+  """
+   Update multiple LinkPage items by ID.
+  """
+  updateLinkPages(data: [LinkPagesUpdateInput]): [LinkPage]
+
+  """
+   Delete a single LinkPage item by ID.
+  """
+  deleteLinkPage(id: ID!): LinkPage
+
+  """
+   Delete multiple LinkPage items by ID.
+  """
+  deleteLinkPages(ids: [ID!]): [LinkPage]
+
+  """
+   Create a single LinkPageLink item.
+  """
+  createLinkPageLink(data: LinkPageLinkCreateInput): LinkPageLink
+
+  """
+   Create multiple LinkPageLink items.
+  """
+  createLinkPageLinks(data: [LinkPageLinksCreateInput]): [LinkPageLink]
+
+  """
+   Update a single LinkPageLink item by ID.
+  """
+  updateLinkPageLink(id: ID!, data: LinkPageLinkUpdateInput): LinkPageLink
+
+  """
+   Update multiple LinkPageLink items by ID.
+  """
+  updateLinkPageLinks(data: [LinkPageLinksUpdateInput]): [LinkPageLink]
+
+  """
+   Delete a single LinkPageLink item by ID.
+  """
+  deleteLinkPageLink(id: ID!): LinkPageLink
+
+  """
+   Delete multiple LinkPageLink items by ID.
+  """
+  deleteLinkPageLinks(ids: [ID!]): [LinkPageLink]
+  authenticateAdminUserWithPassword(
+    email: String!
+    password: String!
+  ): AdminUserAuthenticationWithPasswordResult!
+  createInitialAdminUser(
+    data: CreateInitialAdminUserInput!
+  ): AdminUserAuthenticationWithPasswordSuccess!
+  sendAdminUserPasswordResetLink(
+    email: String!
+  ): SendAdminUserPasswordResetLinkResult
+  redeemAdminUserPasswordResetToken(
+    email: String!
+    token: String!
+    password: String!
+  ): RedeemAdminUserPasswordResetTokenResult
+  authenticateUserWithPassword(
+    email: String!
+    password: String!
+  ): UserAuthenticationWithPasswordResult!
+  createInitialUser(
+    data: CreateInitialUserInput!
+  ): UserAuthenticationWithPasswordSuccess!
+  sendUserPasswordResetLink(email: String!): SendUserPasswordResetLinkResult
+  redeemUserPasswordResetToken(
+    email: String!
+    token: String!
+    password: String!
+  ): RedeemUserPasswordResetTokenResult
+  endSession: Boolean!
+}
+
+"""
+The `Upload` scalar type represents a file upload.
+"""
+scalar Upload
+
+union AuthenticatedItem = AdminUser | User
+
+union AdminUserAuthenticationWithPasswordResult =
+    AdminUserAuthenticationWithPasswordSuccess
+  | AdminUserAuthenticationWithPasswordFailure
+
+type AdminUserAuthenticationWithPasswordSuccess {
+  sessionToken: String!
+  item: AdminUser!
+}
+
+type AdminUserAuthenticationWithPasswordFailure {
+  code: PasswordAuthErrorCode!
+  message: String!
+}
+
+enum PasswordAuthErrorCode {
+  FAILURE
+  IDENTITY_NOT_FOUND
+  SECRET_NOT_SET
+  MULTIPLE_IDENTITY_MATCHES
+  SECRET_MISMATCH
+}
+
+input CreateInitialAdminUserInput {
+  name: String
+  email: String
+  password: String
+}
+
+type SendAdminUserPasswordResetLinkResult {
+  code: PasswordResetRequestErrorCode!
+  message: String!
+}
+
+enum PasswordResetRequestErrorCode {
+  IDENTITY_NOT_FOUND
+  MULTIPLE_IDENTITY_MATCHES
+}
+
+type ValidateAdminUserPasswordResetTokenResult {
+  code: PasswordResetRedemptionErrorCode!
+  message: String!
+}
+
+type RedeemAdminUserPasswordResetTokenResult {
+  code: PasswordResetRedemptionErrorCode!
+  message: String!
+}
+
+enum PasswordResetRedemptionErrorCode {
+  FAILURE
+  IDENTITY_NOT_FOUND
+  MULTIPLE_IDENTITY_MATCHES
+  TOKEN_NOT_SET
+  TOKEN_MISMATCH
+  TOKEN_EXPIRED
+  TOKEN_REDEEMED
+}
+
+union UserAuthenticationWithPasswordResult =
+    UserAuthenticationWithPasswordSuccess
+  | UserAuthenticationWithPasswordFailure
+
+type UserAuthenticationWithPasswordSuccess {
+  sessionToken: String!
+  item: User!
+}
+
+type UserAuthenticationWithPasswordFailure {
+  code: PasswordAuthErrorCode!
+  message: String!
+}
+
+input CreateInitialUserInput {
+  name: String
+  email: String
+  password: String
+}
+
+type SendUserPasswordResetLinkResult {
+  code: PasswordResetRequestErrorCode!
+  message: String!
+}
+
+type ValidateUserPasswordResetTokenResult {
+  code: PasswordResetRedemptionErrorCode!
+  message: String!
+}
+
+type RedeemUserPasswordResetTokenResult {
+  code: PasswordResetRedemptionErrorCode!
+  message: String!
+}
+
+type Query {
+  """
+   Search for all AdminUser items which match the where clause.
+  """
+  allAdminUsers(
+    where: AdminUserWhereInput
+    search: String
+    sortBy: [SortAdminUsersBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [AdminUser]
+
+  """
+   Search for the AdminUser item with the matching ID.
+  """
+  AdminUser(where: AdminUserWhereUniqueInput!): AdminUser
+
+  """
+   Perform a meta-query on all AdminUser items which match the where clause.
+  """
+  _allAdminUsersMeta(
+    where: AdminUserWhereInput
+    search: String
+    sortBy: [SortAdminUsersBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+
+  """
+   Search for all User items which match the where clause.
+  """
+  allUsers(
+    where: UserWhereInput
+    search: String
+    sortBy: [SortUsersBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [User]
+
+  """
+   Search for the User item with the matching ID.
+  """
+  User(where: UserWhereUniqueInput!): User
+
+  """
+   Perform a meta-query on all User items which match the where clause.
+  """
+  _allUsersMeta(
+    where: UserWhereInput
+    search: String
+    sortBy: [SortUsersBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+
+  """
+   Search for all Post items which match the where clause.
+  """
+  allPosts(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [Post]
+
+  """
+   Search for the Post item with the matching ID.
+  """
+  Post(where: PostWhereUniqueInput!): Post
+
+  """
+   Perform a meta-query on all Post items which match the where clause.
+  """
+  _allPostsMeta(
+    where: PostWhereInput
+    search: String
+    sortBy: [SortPostsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+
+  """
+   Search for all Tag items which match the where clause.
+  """
+  allTags(
+    where: TagWhereInput
+    search: String
+    sortBy: [SortTagsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [Tag]
+
+  """
+   Search for the Tag item with the matching ID.
+  """
+  Tag(where: TagWhereUniqueInput!): Tag
+
+  """
+   Perform a meta-query on all Tag items which match the where clause.
+  """
+  _allTagsMeta(
+    where: TagWhereInput
+    search: String
+    sortBy: [SortTagsBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+
+  """
+   Search for all LinkPage items which match the where clause.
+  """
+  allLinkPages(
+    where: LinkPageWhereInput
+    search: String
+    sortBy: [SortLinkPagesBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [LinkPage]
+
+  """
+   Search for the LinkPage item with the matching ID.
+  """
+  LinkPage(where: LinkPageWhereUniqueInput!): LinkPage
+
+  """
+   Perform a meta-query on all LinkPage items which match the where clause.
+  """
+  _allLinkPagesMeta(
+    where: LinkPageWhereInput
+    search: String
+    sortBy: [SortLinkPagesBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+
+  """
+   Search for all LinkPageLink items which match the where clause.
+  """
+  allLinkPageLinks(
+    where: LinkPageLinkWhereInput
+    search: String
+    sortBy: [SortLinkPageLinksBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): [LinkPageLink]
+
+  """
+   Search for the LinkPageLink item with the matching ID.
+  """
+  LinkPageLink(where: LinkPageLinkWhereUniqueInput!): LinkPageLink
+
+  """
+   Perform a meta-query on all LinkPageLink items which match the where clause.
+  """
+  _allLinkPageLinksMeta(
+    where: LinkPageLinkWhereInput
+    search: String
+    sortBy: [SortLinkPageLinksBy!]
+    orderBy: String
+    first: Int
+    skip: Int
+  ): _QueryMeta
+  authenticatedItem: AuthenticatedItem
+  validateAdminUserPasswordResetToken(
+    email: String!
+    token: String!
+  ): ValidateAdminUserPasswordResetTokenResult
+  validateUserPasswordResetToken(
+    email: String!
+    token: String!
+  ): ValidateUserPasswordResetTokenResult
+  keystone: KeystoneMeta!
+}
+
+type KeystoneMeta {
+  adminMeta: KeystoneAdminMeta!
+}
+
+type KeystoneAdminMeta {
+  enableSignout: Boolean!
+  enableSessionItem: Boolean!
+  lists: [KeystoneAdminUIListMeta!]!
+  list(key: String!): KeystoneAdminUIListMeta
+}
+
+type KeystoneAdminUIListMeta {
+  key: String!
+  itemQueryName: String!
+  listQueryName: String!
+  hideCreate: Boolean!
+  hideDelete: Boolean!
+  path: String!
+  label: String!
+  singular: String!
+  plural: String!
+  description: String
+  initialColumns: [String!]!
+  pageSize: Int!
+  labelField: String!
+  fields: [KeystoneAdminUIFieldMeta!]!
+  initialSort: KeystoneAdminUISort
+  isHidden: Boolean!
+}
+
+type KeystoneAdminUIFieldMeta {
+  path: String!
+  label: String!
+  isOrderable: Boolean!
+  fieldMeta: JSON
+  viewsIndex: Int!
+  customViewsIndex: Int
+  createView: KeystoneAdminUIFieldMetaCreateView!
+  listView: KeystoneAdminUIFieldMetaListView!
+  itemView(id: ID!): KeystoneAdminUIFieldMetaItemView
+}
+
+type KeystoneAdminUIFieldMetaCreateView {
+  fieldMode: KeystoneAdminUIFieldMetaCreateViewFieldMode!
+}
+
+enum KeystoneAdminUIFieldMetaCreateViewFieldMode {
+  edit
+  hidden
+}
+
+type KeystoneAdminUIFieldMetaListView {
+  fieldMode: KeystoneAdminUIFieldMetaListViewFieldMode!
+}
+
+enum KeystoneAdminUIFieldMetaListViewFieldMode {
+  read
+  hidden
+}
+
+type KeystoneAdminUIFieldMetaItemView {
+  fieldMode: KeystoneAdminUIFieldMetaItemViewFieldMode!
+}
+
+enum KeystoneAdminUIFieldMetaItemViewFieldMode {
+  edit
+  read
+  hidden
+}
+
+type KeystoneAdminUISort {
+  field: String!
+  direction: KeystoneAdminUISortDirection!
+}
+
+enum KeystoneAdminUISortDirection {
+  ASC
+  DESC
+}
