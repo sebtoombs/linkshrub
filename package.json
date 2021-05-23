@@ -8,7 +8,8 @@
     "start:app": "next start",
     "start": "keystone-next start",
     "build": "keystone-next build",
-    "build:app": "next build"
+    "build:app": "next build",
+    "graphql-codegen": "graphql-codegen --config codegen.yml --watch"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.1",
@@ -36,6 +37,10 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.21.4",
+    "@graphql-codegen/typescript": "^1.22.0",
+    "@graphql-codegen/typescript-operations": "^1.17.16",
+    "@graphql-codegen/typescript-urql": "^2.0.6",
     "@types/jest": "^26.0.23",
     "@types/react-color": "^3.0.4",
     "typescript": "^4.2.4"
