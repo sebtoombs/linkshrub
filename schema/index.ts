@@ -42,15 +42,15 @@ export const lists = createSchema({
         if (operation === "create") {
           const { lists } = context;
 
-          await lists.LinkPage.createOne({
-            data: {
-              title: updatedItem.name,
-              slug: updatedItem.slug,
-              // status: "draft",
-              owner: { connect: { id: updatedItem.id } },
-            },
-            query: "id title slug",
-          });
+          // await lists.LinkPage.createOne({
+          //   data: {
+          //     title: updatedItem.name,
+          //     slug: updatedItem.slug,
+          //     // status: "draft",
+          //     owner: { connect: { id: updatedItem.id } },
+          //   },
+          //   query: "id title slug",
+          // });
 
           // sendWelcomeEmail(updatedItem.name, updatedItem.email);
         }
