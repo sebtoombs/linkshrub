@@ -1,0 +1,3 @@
+# LinkShrub - Like a tree only a lot smaller
+
+Readme is coming soon...
