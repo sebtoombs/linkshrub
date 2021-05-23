@@ -1,6 +1,6 @@
 import { Box, HStack } from "@chakra-ui/react";
 import Container from "./Container";
-import { WithChildren } from "../interfaces";
+import { WithChildren } from "../types";
 
 export type HeaderProps = WithChildren<{}>;
 

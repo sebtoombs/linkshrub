@@ -6,8 +6,8 @@ import {
   PopoverContent,
   Box,
 } from "@chakra-ui/react";
-import { ColorResult, RGBColor, SketchPicker } from "react-color";
-import { WithRestProps } from "../interfaces";
+import { ColorResult, SketchPicker } from "react-color";
+import { WithRestProps } from "../types";
 
 export type ColorPickerInputProps = {
   value: ColorPickerValue | undefined;

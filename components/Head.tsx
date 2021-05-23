@@ -1,6 +1,6 @@
 import NextHead from "next/head";
 
-import { WithChildren } from "../interfaces";
+import { WithChildren } from "../types";
 
 export type HeadProps = WithChildren<{
   title: string;

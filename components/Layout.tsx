@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import SecondNav from "../components/SecondNav";
-import { WithChildren } from "../interfaces";
+import { WithChildren } from "../types";
 
 export type LayoutProps = WithChildren<{}>;
 

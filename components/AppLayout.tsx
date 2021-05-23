@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AppNav from "./AppNav";
 
-import { WithChildren } from "../interfaces";
+import { WithChildren } from "../types";
 
 export type AppLayoutProps = WithChildren<{}>;
 

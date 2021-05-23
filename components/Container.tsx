@@ -1,5 +1,5 @@
 import { Container as ChakraContainer } from "@chakra-ui/react";
-import { WithChildren, WithRestProps } from "../interfaces";
+import { WithChildren, WithRestProps } from "../types";
 
 export type ContainerProps = WithRestProps<WithChildren<{}>>;
 
