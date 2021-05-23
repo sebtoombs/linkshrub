@@ -1042,6 +1042,7 @@ type Mutation {
     token: String!
     password: String!
   ): RedeemUserPasswordResetTokenResult
+  saveLinkPage(id: ID, data: LinkPageSaveInput): LinkPage
   endSession: Boolean!
 }
 
@@ -1143,6 +1144,17 @@ type ValidateUserPasswordResetTokenResult {
 type RedeemUserPasswordResetTokenResult {
   code: PasswordResetRedemptionErrorCode!
   message: String!
+}
+
+input LinkPageSaveInput {
+  title: String
+  heading: String
+  subheading: String
+  slug: String
+  background: String
+  avatarImage: ImageFieldInput
+  status: String
+  links: LinkPageLinkRelateToManyInput
 }
 
 type Query {

@@ -6,6 +6,7 @@ import {
   withItemData,
 } from "@keystone-next/keystone/session";
 import { createAuth } from "@keystone-next/auth";
+import { extendGraphqlSchema } from "./graphql/extendSchema";
 
 import { lists } from "./schema";
 
@@ -61,6 +62,7 @@ const keystoneConfig = config({
       credentials: true,
     },
   },
+  extendGraphqlSchema,
   // db: {
   //   adapter: "prisma_postgresql",
   //   url:
